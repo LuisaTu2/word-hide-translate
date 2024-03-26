@@ -1,0 +1,26 @@
+#app{
+    background-color: #191825;
+    margin-top: 5%;
+    margin-left: 20%;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    min-width: 100px;
+    max-width: 800px;
+}
+
+#title{
+    font-size: 64px;
+    margin-bottom: 32px;
+    color: #F11A7B;
+}
+
+#instructions{
+    font-size: 32px;
+    margin-bottom: 32px;
+}
+
+#uploadTextArea{
+    width: 700px;
+    height: 200px;
+    margin-bottom: 32px;
+}
