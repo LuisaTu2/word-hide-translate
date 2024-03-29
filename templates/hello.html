@@ -1,53 +1,11 @@
 <!doctype html>
 <title>learning</title>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<script src="{{ url_for('static', filename='main_script.js') }}"></script>
 
 <body id="app">
     <h4 id="title">word hide</h4>
     <div id="instructions">start typing or copy and paste your favourite text into the space below</div>
-    <textarea id="uploadTextArea"></textarea>
+    <textarea id="inputText"></textarea>
     <div id="textArea"></div>
 </body>
-
-<script>
-    const UNDERSCORE = "_"
-    const SPACE = " "
-    const seen = {}
-    const uploadTextArea = document.getElementById("uploadTextArea")
-    const uploadedText = uploadTextArea.textContent;
-    const textArea = document.getElementById("textArea")
-    
-    const onClick = (event) => {
-        const id = event.target.id
-        const element = document.getElementById(id)
-
-        if(id in seen){
-            element.innerHTML = seen[id]
-            delete seen[id]
-        } else {
-            const word = element.textContent
-            seen[id] = word
-            const wordLength = word.length
-
-            element.innerHTML = (UNDERSCORE + SPACE).repeat(wordLength - 1) + UNDERSCORE
-        }
-    }
-
-    uploadTextArea.addEventListener("input", (event) => {
-        const text = event.target.value
-        const words = text.split(SPACE)
-        const wordDivs = document.createElement("div")
-        wordDivs.setAttribute("id", "wordDivs")
-
-        for(let i = 0; i < words.length; i++){
-            const word = words[i]
-            const element = document.createElement("div");
-            element.setAttribute("id", "div" + String(i));
-            element.innerHTML = word
-            element.addEventListener("click", (e) => {onClick(e)})
-            wordDivs.append(element)
-        }
-        textArea.innerHTML = ""
-        textArea.append(wordDivs)
-    });
-</script>
