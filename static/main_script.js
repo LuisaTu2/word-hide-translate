@@ -11,15 +11,35 @@ window.onload = function(){
     // helpers
     const onWordClick = (event) => {
         const id = event.target.id
-        const element = document.getElementById(id)
+        const word = document.getElementById(id)
         if(id in seen){
-            element.innerHTML = seen[id]
+            word.innerHTML = seen[id]
             delete seen[id]
         } else {
-            const word = element.textContent
-            seen[id] = word
-            const wordLength = word.length
-            element.innerHTML = (UNDERSCORE + SPACE).repeat(wordLength - 1) + UNDERSCORE
+            const text = word.textContent
+            let updatedText = ""
+            for(i = 0; i < text.length; i++){
+                c = text[i]
+                if (!c.match(/^[0-9a-zA-Z]+$/)){
+                    updatedText += c
+                } else {
+                    if (i == (text.length - 1)){
+                        updatedText += UNDERSCORE
+                    } else {
+                        updatedText += (UNDERSCORE + SPACE)
+                    }
+                }
+            }
+            // // Add a separator in case there are two contiguous hidden words -- ouf not as easy so leave as a TODO
+            // const position = id.split("c")
+            // const prev = position[0] + "c" + String(parseInt(position[1]) - 1)
+            // if (prev in seen){
+            //     updatedText = "· " + updatedText
+            // }
+
+            // not sure about <> but will leave for now
+            word.innerHTML = "<" + updatedText + "> "
+            seen[id] = text
         }
     }
 
