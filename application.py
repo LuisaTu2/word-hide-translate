@@ -1,23 +1,28 @@
 from flask import Flask, render_template
 
-# EB needs application by default
+# [EB] EB looks for an 'application' callable by default.
 application = Flask(__name__)
 
 @application.route("/")
-def hello_world(name=None):
+def word_hide(name=None):
     return render_template('index.html', name=name)
 
 
-# # add a rule for the index page.
-# application.add_url_rule('/', 'index', (lambda: header_text +
-#     say_hello() + instructions + footer_text))
-
 if __name__ == "__main__":
-    # Setting debug to True enables debug output. This line should be
-    # removed before deploying a production app.
+    # setting debug to True enables debug output. 
+    # this line should be removed before deploying a production app.
     application.debug = True
     application.run()
 
 
+# HOW TO RUN
+# activate venv with python 3.11
+# cd to root folder
+# flask --app application run --debug
 
-#flask --app application run --debug
+# PUSH TO EB
+# cd to root/app of project
+# eb init -p python-3.11 word-hide --region us-west-2
+# eb deploy
+# eb open 
+# THIS TERMINATES THE ENVT: eb terminate flask-env
