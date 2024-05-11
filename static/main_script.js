@@ -46,6 +46,7 @@ const createHTMLWord = (text, rowIndex, columnIndex) => {
     word.innerHTML = text
     word.addEventListener("click", (e) => { onWordClick(e)})
     word.style.cursor = "pointer";
+    word.className = "word";
     return word
 }
 
