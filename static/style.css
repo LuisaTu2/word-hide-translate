@@ -1,11 +1,16 @@
 #app{
-    background-color: #191825;
+    /* background-color: #191825; */
+    background-color: #EAD6B2;
     margin-top: 5%;
-    margin-left: 20%;
+    margin-left: 5%;
     color: white;
     font-family: 'Courier New', Courier, monospace;
     min-width: 100px;
     /* max-width: 800px; */  /* to allow for text to expand when hidden!*/
+    background-image: url("background.png");
+    background-position-x: -300px;
+    background-position-y: 25%;
+    background-repeat: no-repeat;
 }
 
 #title{
@@ -28,20 +33,20 @@
     font-size: 25px;
     padding: 10px;
     border-radius: 1%;
+    border-color: rgb(233, 232, 228);
     resize: none;
     background-color: rgb(233, 232, 228);
 }
 
 #textArea {
     /* min-width: 500px; */
-    max-width: 500px;
+    max-width: 1500px;
     min-height: 200px;
     display: flex;
     flex-direction: row;
-    font-size: 18px;
-
+    font-size: 25px;
     margin-top: 10px;
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
     color: black;
     padding: 10px;
 }
@@ -53,4 +58,8 @@
 
 .word {
     color: blueviolet;
+}
+
+.darkText{
+    color: #191825;
 }
